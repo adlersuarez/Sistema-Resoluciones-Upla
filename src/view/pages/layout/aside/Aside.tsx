@@ -4,7 +4,6 @@ import Title from "./widget/Title";
 import SubTitle from "./widget/SubTitle";
 import Overlay from "./widget/Overlay";
 import Body from "./widget/Body";
-import EstudianteLogin from "../../../../model/interfaces/login/estudiante.login";
 import TrabajadorLogin from "../../../../model/interfaces/login/trabajador.login";
 import { MenuItem, menusAdmin } from "@/helper/menu.helper";
 //import { useSelector } from "react-redux";
@@ -13,7 +12,7 @@ import { MenuItem, menusAdmin } from "@/helper/menu.helper";
 
 type Props = {
 
-    informacion: EstudianteLogin | TrabajadorLogin | undefined,
+    informacion: TrabajadorLogin | undefined,
     pathname: string,
     refAside: React.RefObject<HTMLInputElement>,
     refOverlay: React.RefObject<HTMLInputElement>,

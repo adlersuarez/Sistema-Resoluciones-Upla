@@ -43,6 +43,11 @@ module.exports = {
       'black-light': '#00000082',
       'transparent': '#fff0',
       'sombra': '#00000054',
+      'success': '#a5dc86',
+      'error':'#f27474',
+      'warning':'#f8bb86',
+      'info':'#3fc3ee',
+      'question':'#87adbd',
       upla: {
         50: '#4CC2FD',
         100: '#007dbc',
@@ -119,6 +124,18 @@ module.exports = {
         700: '#5145CD',
         800: '#42389D',
         900: '#362F78'
+      },
+      cyan: {
+        100: '#CFFAFE',
+        200: '#A5F3FC',
+        300: '#67E8F9',
+        400: '#22D3EE',
+        500: '#06B6D4',
+        600: '#0891B2',
+        700: '#0E7490',
+        800: '#155E73',
+        900: '#164E63',
+        950: '#083344',
       },
       violet: {
         50: '#F6F5FF',

@@ -1,4 +1,4 @@
-import CryptoJS from 'crypto-js'
+///import CryptoJS from 'crypto-js'
 
 export function formatTime(value: string) {
     var hourEnd = value.indexOf(":");
@@ -256,15 +256,38 @@ export function isNumeric(valor: any): boolean {
 }
 
 // Función para realizar hash utilizando SHA-256
-function hashStringSHA256(input: string) {
+/*function hashStringSHA256(input: string) {
     const hash = CryptoJS.SHA256(input).toString(CryptoJS.enc.Hex);
     return hash;
-  }
-  
-  // Función para comparar un valor con un hash
-  function compararHashSHA256(valor: string, hash: string) {
+}
+
+// Función para comparar un valor con un hash
+function compararHashSHA256(valor: string, hash: string) {
     return hashStringSHA256(valor) === hash;
-  }
+}*/
+
+
+export function corregirTexto(texto: string) {
+    // Dividir el texto por comas
+    const partes = texto.split(',');
+
+    // Corregir cada parte y agregar un espacio después de cada coma si no existe
+    const partesCorregidas = partes.map(part => {
+        const parteCorregida = part.trim(); // Eliminar espacios al principio y al final de la parte
+        if (parteCorregida.charAt(0) === ' ') {
+            return parteCorregida.slice(1); // Eliminar el espacio al principio
+        } else {
+            return parteCorregida;
+        }
+    });
+
+    // Unir las partes corregidas con comas
+    const textoCorregido = partesCorregidas.join(', ');
+
+    return textoCorregido;
+}
+
+
 
 export const denominacionHorario = {
     intensivoLV: [

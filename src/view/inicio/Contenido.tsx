@@ -19,7 +19,6 @@ type Props = {
 
 const Contenido = (props: Props) => {
 
-    
     const autenticado = useSelector((state: RootState) => state.autenticacion.autenticado)
 
     if (!autenticado) {
@@ -127,54 +126,47 @@ const Contenido = (props: Props) => {
     }
 
     return (
-        <>
+        <div className="flex w-full">
             {
-
-                <div className="flex w-full">
-
-                    {
-                        props.cargando && <div className="fixed z-[500] w-screen h-screen">
-                            <div className=" w-screen h-screen bg-gray-900"></div>
-                            <div className=" w-full h-full absolute left-0 top-0 text-white flex justify-center items-center flex-col">
-                                <img src={images.logo} className="w-[10.5rem] mr-0 my-3" alt="Flowbite Logo" />
-                                <div style={{ "borderTopColor": "transparent" }}
-                                    className="w-16 h-16 border-4 border-upla-100 border-solid rounded-full animate-spin">
-                                </div>
-                                <h1 className='m-3 text-center'>Cargando información, espere por favor...</h1>
-                            </div>
-                        </div>}
-
-                    {/* Navbar */}
-                    <Nav refBlock={refBlock} onEventMenu={onEventMenu} />
-                    {/*  */}
-
-                    {/* Aside */}
-                    <Aside informacion={props.informacion} pathname={location.pathname} refAside={refAside} refOverlay={refOverlay} onEventOverlay={onEventOverlay} />
-                    {/*  */}
-
-                    {/*  */}
-                    <div
-                        ref={refMain}
-                        className={css.DivMain}>
-                        <div className="w-full p-4 font-mont overflow-hidden">
-                            {/*INICIO NAVEGACION */}
-                            <div className="content-wrapper flex-wrap">
-
-                                <Outlet />
-
-                            </div>
-                            {/* FIN NAVEGACION  */}
-                        </div>
-                        {/*  */}
+                props.cargando &&
+                <div className="fixed z-[500] w-screen h-screen">
+                    <div className="text-white w-screen h-screen bg-gray-900" />
+                    <div className=" w-full h-full absolute left-0 top-0 text-white flex justify-center items-center flex-col">
+                        <img src={images.logo} className="w-[10.5rem] mr-0 my-3" alt="Flowbite Logo" />
+                        <div className="border-t-transparent w-16 h-16 border-4 border-upla-100 border-solid rounded-full animate-spin"/>
+                        <h1 className='m-3 text-center'>
+                            Cargando información, espere por favor...
+                        </h1>
                     </div>
-                    {/*  */}
-                    <Toaster />
                 </div>
             }
 
+            {/* Navbar */}
+            <Nav refBlock={refBlock} onEventMenu={onEventMenu} />
+            {/*  */}
 
-        </>
-    );
+            {/* Aside */}
+            <Aside informacion={props.informacion} pathname={location.pathname} refAside={refAside} refOverlay={refOverlay} onEventOverlay={onEventOverlay} />
+            {/*  */}
+
+            <div
+                ref={refMain}
+                className={css.DivMain}>
+                <div className="w-full p-8 font-mont overflow-hidden">
+                    {/*INICIO NAVEGACION */}
+                    <div className="content-wrapper flex-wrap ">
+
+                        <Outlet /> {/* RENDERIZADO DE HIJOS*/}
+
+                    </div>
+                    {/* FIN NAVEGACION  */}
+                </div>
+                {/*  */}
+            </div>
+            {/*  */}
+            <Toaster />
+        </div>
+    )
 }
 
 export default Contenido;

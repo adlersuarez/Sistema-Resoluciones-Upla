@@ -10,7 +10,7 @@ const useSweet = (): Sweet => {
 
     const openInformation = (title: string, message: string) => {
         alert.current({
-            title: title,
+            title: `<span class="text-info">${title}</span>`,
             text: message,
             type: "info",
             showConfirmButton: false,
@@ -21,11 +21,13 @@ const useSweet = (): Sweet => {
 
     const openSuccess = (title: string, message: string, callback = function () { }) => {
         const result = alert.current({
-            title: title,
+            title: `<span class="text-success">${title}</span>`,
             text: message,
             type: "success",
-            showConfirmButton: true,
+            showConfirmButton: false, //Ocultar el botón
             allowOutsideClick: false,
+            timer: 2500, //Añadirle Tiempo
+           
         });
 
         if (result instanceof Promise) {
@@ -37,7 +39,7 @@ const useSweet = (): Sweet => {
 
     const openWarning = (title: string, message: string, callback = function () { }) => {
         const result = alert.current({
-            title: title,
+            title: `<span class="text-warning">${title}</span>`,
             text: message,
             type: "warning",
             showConfirmButton: true,
@@ -53,7 +55,7 @@ const useSweet = (): Sweet => {
 
     const openError = (title: string, message: string) => {
         alert.current({
-            title: title,
+            title: `<span class="text-error">${title}</span>`,
             text: message,
             type: "error",
             showConfirmButton: true,
@@ -63,7 +65,7 @@ const useSweet = (): Sweet => {
 
     const openDialog = (title: string, message: string, callback: (value: boolean) => void) => {
         const result = alert.current({
-            title: title,
+            title: `<span class="text-question">${title}</span>`,
             text: message,
             type: "question",
             showCancelButton: true,

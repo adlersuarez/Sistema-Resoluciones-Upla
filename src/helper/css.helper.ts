@@ -13,7 +13,8 @@ duration-700
 items-center  
 break-words
 flex-wrap
-mt-[50px]`;
+mt-[50px]
+`;
 
 export default {
     DivMain

@@ -11,7 +11,7 @@ const NotFound = () => {
                             <p className="text-2xl pb-8 px-12 font-medium">La página que buscas no existe. Es posible que se haya movido o eliminado.</p>
                             <button 
                                 className="bg-gradient-to-r from-purple-400 to-blue-500 hover:from-pink-500 hover:to-orange-500 text-white font-semibold px-6 py-3 rounded-md mr-6"
-                                onClick={ () =>navigate(-1)}
+                                onClick={() =>navigate('/')}
                                 >
                                 <i className="bi bi-arrow-left text-lg font-bold"></i> Regresar
                             </button>

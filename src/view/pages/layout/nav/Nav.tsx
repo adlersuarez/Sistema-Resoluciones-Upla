@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux";
 import { logout } from "../../../../store/authSlice.store";
+import { Tooltip } from "react-tooltip";
 // import { useEffect, useState } from "react";
 
 // type MessageNotif = {
@@ -66,7 +67,7 @@ const Nav = (props: Props) => {
             <button
                 onClick={props.onEventMenu}
                 className="flex items-center justify-center px-4 text-white hover:bg-white hover:text-upla-100">
-                <i className="bi bi-justify text-2xl"/>
+                <i className="bi bi-justify text-2xl" />
             </button>
             <ul className="flex items-center flex-1 justify-end pr-3 h-full">
                 <li className="flex justify-center h-full relative">
@@ -123,10 +124,11 @@ const Nav = (props: Props) => {
                 </li>
                 <li className="flex justify-center h-full">
                     <button
-                    title="Cerrar Sesión"
+                         data-tooltip-id="logout"
                         onClick={() => dispatch(logout())}
                         className="px-4 text-white hover:bg-white hover:text-upla-100">
-                        <i className="bi bi-box-arrow-left text-xl"></i>
+                        <i className="bi bi-box-arrow-right text-xl" />
+                        <Tooltip id="logout" content="Cerrar Sesión" opacity={0.9} variant="error" />
                     </button>
                 </li>
             </ul>

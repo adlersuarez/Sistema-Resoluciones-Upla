@@ -10,16 +10,15 @@ import RestError from '../../model/class/resterror.model.class';
 import TrabajadorLogin from '../../model/interfaces/login/trabajador.login';
 
 import { logout } from '../../store/authSlice.store';
-
 import Contenido from "./Contenido";
 
 
 const Inicio = () => {
 
     const dispatch = useDispatch();
+    // const sweet = useSweerAlert();
 
     const codigo = useSelector((state: RootState) => state.autenticacion.codigo)
-
 
     const [cargando, setCargando] = useState<boolean>(true);
 
@@ -39,6 +38,11 @@ const Inicio = () => {
                 if (response instanceof RestError) {
                     dispatch(logout());
                 }
+            } else {
+
+                //MODIFICAR LOGIN PARA SOLO PERMITIR ACCESO A TRABAJADORES
+                //Reportessweet.openError("Error", "Solo administrativos pueden acceder a este Sistema");
+                dispatch(logout())
             }
         }
 

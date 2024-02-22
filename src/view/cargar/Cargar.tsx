@@ -8,7 +8,6 @@ import { images } from '../../helper/index.helper';
 
 const Cargar = () => {
 
-
     const dispatch = useDispatch();
 
     useEffect(() => {

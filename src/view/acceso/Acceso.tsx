@@ -102,6 +102,7 @@ const Acceso = () => {
         <div className="flex flex-wrap w-screen h-screen">
             <div className="bg-portada relative -z-20 bg-cover hidden md:flex md:w-1/2 xl:w-2/3">
                 <div className="bg-sombra w-full  h-screen absolute -z-10"></div>
+
                 <div className="m-auto text-white text-center">
                     <motion.p
                         className="text-lg md:text-xl lg:text-3xl font-mont font-thin"
