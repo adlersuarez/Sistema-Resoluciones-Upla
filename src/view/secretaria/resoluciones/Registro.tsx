@@ -28,6 +28,7 @@ import { VistaPreviaResolucion } from '@/component/pages/vistaPrevia/VistaPrevia
 import { OrdenarEncargos } from '@/component/pages/ordenar/OrdenarEncarrgos';
 import { OrdenarDocumentos } from '@/component/pages/ordenar/OrdenarDocumentos';
 import { OrdenarAsuntos } from '@/component/pages/ordenar/OrdenarAsuntos';
+import { generarDocumento } from '@/component/pages/renderizar/ResolucionGeneral';
 
 
 const RegistrarResolucion = () => {
@@ -764,7 +765,7 @@ const RegistrarResolucion = () => {
                                         ref={textAsuntoaRef}
                                         onChange={(e) => setValorTextAsunto(e.target.value)}
                                         className="w-full py-2 px-4 rounded-lg outline-none border-gray-200 focus:ring-blue-200 focus:ring-0 text-sm h-20"
-                                        placeholder="Ejm. acuerdo tomado"
+                                        placeholder="Ejm. APROBAR y poner en ejecución..."
                                     />
 
                                     {
@@ -878,17 +879,17 @@ const RegistrarResolucion = () => {
                                             {
                                                 listaAsuntoSeleccion.map((item, index) => {
                                                     return (
-                                                            <AsuntoSeleccionado
-                                                                id={item.idAsunto}
-                                                                key={index}
-                                                                idTipoAcuerdo={item.idTipoAsunto}
-                                                                nombreTipo={item.tipoAsunto}
-                                                                asunto={item.asunto}
-                                                                imagen={item.imagen}
+                                                        <AsuntoSeleccionado
+                                                            id={item.idAsunto}
+                                                            key={index}
+                                                            idTipoAcuerdo={item.idTipoAsunto}
+                                                            nombreTipo={item.tipoAsunto}
+                                                            asunto={item.asunto}
+                                                            imagen={item.imagen}
 
-                                                                editar={editarAsuntoLista}
-                                                                eliminar={eliminarAsuntoLista}
-                                                            />
+                                                            editar={editarAsuntoLista}
+                                                            eliminar={eliminarAsuntoLista}
+                                                        />
                                                     )
                                                 })
                                             }
@@ -1126,11 +1127,17 @@ const RegistrarResolucion = () => {
                             steps={EstadosRegistro}
                         />
                     </div>
-                    <div className="flex">
+                    <div className="flex gap-4">
                         <button
                             onClick={registroResolucion}
                             className="px-8 py-2 font-semibold text-white bg-gray-400 rounded hover:bg-gray-600">
                             Registrar
+                        </button>
+                        <button
+                            className='bg-red-400 hover:bg-red-600 text-white p-2 px-4 rounded'
+                            onClick={() => generarDocumento(listaDocumentoSeleccion, listaAsuntoSeleccion)}
+                        >
+                            Descargar word
                         </button>
                     </div>
                 </div>

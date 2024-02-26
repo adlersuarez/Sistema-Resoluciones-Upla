@@ -10,12 +10,11 @@ export const varAsuntoPrueba: TipoAsunto[] = [
     { idTipoAsunto: 1, tipoAsunto: 'Aprobar' },
     { idTipoAsunto: 2, tipoAsunto: 'Disponer' },
     { idTipoAsunto: 3, tipoAsunto: 'Dar por Conocido' },
-    { idTipoAsunto: 4, tipoAsunto: 'Transcribir' },
-    { idTipoAsunto: 5, tipoAsunto: 'Desestimar' },
-    { idTipoAsunto: 6, tipoAsunto: 'Modificar' },
-    { idTipoAsunto: 7, tipoAsunto: 'Precisar' },
-    { idTipoAsunto: 8, tipoAsunto: 'Autorizar' },
-    { idTipoAsunto: 9, tipoAsunto: 'Rectificar' }
+    { idTipoAsunto: 4, tipoAsunto: 'Desestimar' },
+    { idTipoAsunto: 5, tipoAsunto: 'Modificar' },
+    { idTipoAsunto: 6, tipoAsunto: 'Precisar' },
+    { idTipoAsunto: 7, tipoAsunto: 'Autorizar' },
+    { idTipoAsunto: 8, tipoAsunto: 'Rectificar' }
 ]
 // PASO 1  DOCUMENTOS
 export const varPruebaOficio: Documento[] = [

@@ -26,7 +26,7 @@ export const OrdenarEncargos: React.FC<ListaPersonaSeleccionProps> = ({ listaPer
             <div className=" bg-white rounded-lg">
                 <div className="flex flex-col p-4 gap-4">
                     <div className='flex justify-between gap-8'>
-                        <h1 className='my-auto text-bold text-gray-400 text-xl'>ORDENAR ENCARGATURA </h1>
+                    <h1 className='my-auto font-bold text-gray-400 text-xl tracking-wider'>ORDENAR ENCARGOS</h1>
                         <button
                             className="flex text-sm bg-green-500 hover:bg-green-700 px-2 py-0.5 rounded-md text-white"
                             onClick={() => close()}
@@ -36,8 +36,8 @@ export const OrdenarEncargos: React.FC<ListaPersonaSeleccionProps> = ({ listaPer
                         </button>
                     </div>
                     <div className='flex'>
-                        <span className='flex gap-2 bg-blue-50 px-2 py-1 rounded text-xs text-upla-100 animate-pulse'>
-                            <i className="bi bi-info-circle-fill " />
+                        <span className='flex gap-2 bg-blue-50 px-2 py-1 rounded text-xs text-upla-100 '>
+                            <i className="bi bi-info-circle-fill animate-pulse" />
                             Arrastrar para mover
                         </span>
                     </div>

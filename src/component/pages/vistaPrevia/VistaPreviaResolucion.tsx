@@ -8,7 +8,6 @@ import { useState } from "react"
 import { OrdenarEncargos } from "../ordenar/OrdenarEncarrgos"
 import { OrdenarDocumentos } from "../ordenar/OrdenarDocumentos"
 import { OrdenarAsuntos } from "../ordenar/OrdenarAsuntos"
-import { spawn } from "child_process"
 
 interface VistaPreviaProps {
     //PASO 1
@@ -94,9 +93,9 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
 
     const formatoFechaResolucion = (fecha: string): string => {
         const fechaObjeto = new Date(fecha)
-        const año = fechaObjeto.getFullYear()
-        const mes = fechaObjeto.getMonth() + 1 // Los meses van de 0 a 11, por lo que sumamos 1
-        const dia = fechaObjeto.getDate()
+        const año = fechaObjeto.getUTCFullYear()
+        const mes = fechaObjeto.getUTCMonth() + 1 // Los meses van de 0 a 11, por lo que sumamos 1
+        const dia = fechaObjeto.getUTCDate() //getUTC Format
 
         // Asegurarnos de que el mes y el día tengan dos dígitos
         const mesFormateado = mes < 10 ? '0' + mes : mes
@@ -210,7 +209,7 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                     </span>
                                                     :
                                                     <span className="bg-red-400 text-white text-sm px-8 py-1 rounded font-normal normal-case">
-                                                        <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4"/>
+                                                        <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4" />
                                                         Por favor completa todos los <strong>DATOS GENERALES</strong> para obtener el título
                                                     </span>
                                             }
@@ -234,7 +233,7 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                 </div>
                                                 :
                                                 <span className="bg-red-400 text-white text-sm px-2 py-1 rounded font-normal normal-case text-center">
-                                                    <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4"/>
+                                                    <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4" />
                                                     Seleccione los <strong>DOCUMENTOS</strong> necesarios que serán agregados a los <strong>VISTOS</strong>
                                                 </span>
                                         }
@@ -270,7 +269,7 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                 </div>
                                                 :
                                                 <span className="bg-red-400 text-white text-sm px-2 py-1 rounded font-normal normal-case text-center">
-                                                    <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4"/>
+                                                    <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4" />
                                                     Seleccione los <strong>DOCUMENTOS</strong> necesarios que requieren un <strong>CONSIDERANDO</strong>
                                                 </span>
                                         }
@@ -305,7 +304,7 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                                     <div className='col-span-1'>
                                                                         <strong>Art. {index + 1}°</strong>
                                                                     </div>
-                                                                    <div className='col-span-10 flex flex-col gap-2'>
+                                                                    <div className='col-span-11 flex flex-col gap-2'>
                                                                         <div className="justify-left">
                                                                             <strong className="uppercase">{item.tipoAsunto}</strong>  {item.asunto}
                                                                         </div>
@@ -352,7 +351,7 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                 </div>
                                                 :
                                                 <span className="bg-red-400 text-white text-sm px-2 py-1 rounded font-normal normal-case text-center">
-                                                    <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4"/>
+                                                    <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4" />
                                                     Seleccione al <strong>PERSONAL</strong> al que se le encargará el <strong>CUMPLIMIENTO</strong> de la presente Resolución
                                                 </span>
                                         }
