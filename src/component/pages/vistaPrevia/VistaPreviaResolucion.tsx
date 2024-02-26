@@ -282,7 +282,7 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                         </div>
 
                                         {
-                                            listaAcuerdoSelect.length != 0 &&
+                                            listaAcuerdoSelect.length != 0 ?
                                             <div className="grid grid-cols-12 text-xs">
                                                 <div className='col-span-1 flex pr-3 p-1'>
                                                     <ButtonIconoToolTip
@@ -324,6 +324,11 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                 </div>
 
                                             </div>
+                                             :
+                                             <span className="bg-red-400 text-white text-sm px-2 py-1 rounded font-normal normal-case text-center">
+                                                 <i className="animate-ping inline-flex h-2 w-2 rounded-full bg-white opacity-75 mr-4" />
+                                                 Registre los <strong>ACUERDOS</strong> adoptados en la presente Resolución
+                                             </span>
                                         }
 
                                         {
