@@ -52,7 +52,7 @@ export const OrdenarAsuntos: React.FC<ListaAsuntoSeleccionProps> = ({ listaAsunt
                                         className='p-0.5 w-[700px] max-h-[750px] overflow-y-auto'
                                         ref={provided.innerRef} {...provided.droppableProps}>
                                         {listaAsuntoSeleccion.map((item, index) => (
-                                            <Draggable key={item.idAsunto} draggableId={item.idAsunto.toString()} index={index}>
+                                            <Draggable key={item.asuntoId} draggableId={item.asuntoId.toString()} index={index}>
                                                 {(provided, snapshot) => (
                                                     <div className={`flex p-1 px-2 
                                                     ${snapshot.isDragging && 'border-upla-100 rounded border-2 text-upla-100 '} 
@@ -65,12 +65,12 @@ export const OrdenarAsuntos: React.FC<ListaAsuntoSeleccionProps> = ({ listaAsunt
                                                         <div className='w-1/12 font-bold'>{index + 1}. </div>
                                                         <div className='w-11/12 font-normal flex flex-col gap-1'>
                                                             <div>
-                                                                <strong className='uppercase font-semibold'>{item.tipoAsunto}</strong> {item.asunto}
+                                                                <strong className='uppercase font-semibold'>{item.tipoAsunto}</strong> {item.asuntoDescripcion}
                                                             </div>
                                                             {
-                                                                item.imagen &&
+                                                                item.asuntoImagen &&
                                                                 <div className='border border-gray-400'>
-                                                                    <img src={`${URL.createObjectURL(item.imagen)}`} style={{/* width: '100%', height: asunto.altura + "px" */ }} />
+                                                                    <img src={`${URL.createObjectURL(item.asuntoImagen)}`} style={{/* width: '100%', height: asunto.altura + "px" */ }} />
                                                                 </div>
                                                             }
 

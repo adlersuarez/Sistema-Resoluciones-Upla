@@ -42,11 +42,12 @@ export const AsuntoSeleccionado: React.FC<AsuntoSeleccionadoProps> = ({ id, idTi
         const tipoAsuntoSeleccionado = listaTipoAsuntos.find(tipo => tipo.idTipoAsunto == idTipoAsunto)?.tipoAsunto || '';
 
         const nuevoAsunto: Asunto = {
-            idAsunto: id,
-            idTipoAsunto: idTipoAsunto,
-            asunto: valorAsunto,
+            asuntoId: id,
+            tipoAsuntoId: idTipoAsunto,
+            asuntoDescripcion: valorAsunto,
             tipoAsunto: tipoAsuntoSeleccionado,
-            imagen: imagenFile
+            asuntoUrlImagen: '',
+            asuntoImagen: imagenFile
         }
 
         editar(id, nuevoAsunto)

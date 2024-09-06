@@ -1,9 +1,11 @@
 import { TitlePages } from '@/component/pages/titulos/TituloPagina';
 import { RootState } from '../../../store/configureStore.store';
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LoaderSvg } from '@/component/Svg.component';
 import { useNavigate } from 'react-router-dom';
+import { varPruebaResolucion } from '@/helper/prueba.helper';
+import { Resolucion } from '@/model/interfaces/resolucion/resolucion';
 
 const Resoluciones = () => {
 
@@ -14,7 +16,7 @@ const Resoluciones = () => {
     const codigo = useSelector((state: RootState) => state.autenticacion.codigo)
 
     const [loadResoluciones, setLoadResoluciones] = useState<boolean>(true)
-    const [listaResoluciones, setListaResoluciones] = useState<any[]>([])
+    const [listaResoluciones, setListaResoluciones] = useState<Resolucion[]>([])
 
     const [activeButton, setActiveButton] = useState<number>(1)
 
@@ -24,9 +26,18 @@ const Resoluciones = () => {
         setActiveButton(buttonNumber);
     };
 
-    const ResolicionesListar = () => {
+    const ResolucionesListar = async () => {
+        setLoadResoluciones(true)
+        // Añadir un delay de 2 segundos directamente en la función
+        // await new Promise(resolve => setTimeout(resolve, 2000));
 
+        setListaResoluciones(varPruebaResolucion)
+        setLoadResoluciones(false)
     }
+
+    useEffect(() => {
+        ResolucionesListar()
+    }, [])
 
 
     return (
@@ -126,26 +137,26 @@ const Resoluciones = () => {
                                                 listaResoluciones.map((item, index) => {
 
                                                     return (
-                                                        <tr key={index} className={`${index % 2 == 0 ? 'bg-white' : 'bg-blue-200'} border-b`}>
+                                                        <tr key={index} className={`${index % 2 == 0 ? 'bg-white' : 'bg-blue-100'} border-b`}>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">{++index}</td>
 
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-
+                                                                {item.resolucionNombre}
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
 
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-
+                                                                <span>{item.encargos.length} encargos</span>
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-
+                                                                {item.resolucionUrl}
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-
+                                                                {item.resolucionFecha}
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-
+                                                                <button>Cargar</button>
                                                             </td>
                                                         </tr>
                                                     );

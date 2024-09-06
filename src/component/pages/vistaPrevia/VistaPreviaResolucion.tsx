@@ -105,8 +105,8 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
     }
 
     const generarTextoDocumento = (documentos: Documento[], fecha: string, tipoResolucion: string | number): string => {
-        const oficios = documentos.filter(doc => doc.tipoDoc === 1);
-        const proveidos = documentos.filter(doc => doc.tipoDoc === 2);
+        const oficios = documentos.filter(doc => doc.tipoDocumentoId === 1);
+        const proveidos = documentos.filter(doc => doc.tipoDocumentoId === 2);
         const fechaFormateada = formatoFechaResolucion(fecha || '');
 
         const textoOficios = oficios.length > 1 ? 'Los Oficios' : 'El Oficio';
@@ -306,13 +306,13 @@ export const VistaPreviaResolucion: React.FC<VistaPreviaProps> = ({ fecha, numer
                                                                     </div>
                                                                     <div className='col-span-11 flex flex-col gap-2'>
                                                                         <div className="justify-left">
-                                                                            <strong className="uppercase">{item.tipoAsunto}</strong>  {item.asunto}
+                                                                            <strong className="uppercase">{item.tipoAsunto}</strong>  {item.asuntoDescripcion}
                                                                         </div>
 
                                                                         {
-                                                                            item.imagen &&
+                                                                            item.asuntoImagen &&
                                                                             <div className='border border-gray-400'>
-                                                                                <img src={`${URL.createObjectURL(item.imagen)}`} style={{/* width: '100%', height: asunto.altura + "px" */ }} />
+                                                                                <img src={`${URL.createObjectURL(item.asuntoImagen)}`} style={{/* width: '100%', height: asunto.altura + "px" */ }} />
                                                                             </div>
                                                                         }
                                                                     </div>

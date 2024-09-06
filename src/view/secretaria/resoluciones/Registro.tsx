@@ -236,7 +236,7 @@ const RegistrarResolucion = () => {
 
     //FUNCIONES DE DOCUMENTOS
     const agregadDocumentoLista = (item: Documento) => {
-        const existe = listaDocumentoSeleccion.some((elemento) => elemento.idDoc === item.idDoc);
+        const existe = listaDocumentoSeleccion.some((elemento) => elemento.documentoId === item.documentoId);
         if (!existe) {
             setListaDocumentoSeleccion([...listaDocumentoSeleccion, item]);
             toast.success("Documento agregado exitosamente")
@@ -245,7 +245,7 @@ const RegistrarResolucion = () => {
         }
     }
     const eliminarDocumentoLista = (id: number) => {
-        const nuevaLista = listaDocumentoSeleccion.filter((elemento) => elemento.idDoc !== id)
+        const nuevaLista = listaDocumentoSeleccion.filter((elemento) => elemento.documentoId !== id)
         setListaDocumentoSeleccion(nuevaLista)
         toast("El documento ha sido removido", { icon: 'ℹ️' })
     }
@@ -270,18 +270,19 @@ const RegistrarResolucion = () => {
         }
 
         // Consultar el máximo idAsunto existente
-        const maxIdAsunto = listaAsuntoSeleccion.length > 0 ? Math.max(...listaAsuntoSeleccion.map(asunto => asunto.idAsunto)) : 0;
+        const maxIdAsunto = listaAsuntoSeleccion.length > 0 ? Math.max(...listaAsuntoSeleccion.map(asunto => asunto.asuntoId)) : 0;
         // Incrementar el máximo idAsunto en 1 para obtener un nuevo valor autoincrementable
         const nuevoIdAsunto = maxIdAsunto + 1;
         // Buscar el tipoAsunto correspondiente al selectAsunto
         const tipoAsuntoSeleccionado = listaTipoAsuntos.find(tipo => tipo.idTipoAsunto == selectAsunto)?.tipoAsunto || '';
 
         setListaAsuntoSeleccion([...listaAsuntoSeleccion, {
-            idAsunto: nuevoIdAsunto,
-            idTipoAsunto: selectAsunto,
+            asuntoId: nuevoIdAsunto,
+            tipoAsuntoId: selectAsunto,
             tipoAsunto: tipoAsuntoSeleccionado,
-            asunto: valorTextAsunto,
-            imagen: imagenFile
+            asuntoDescripcion: valorTextAsunto,
+            asuntoUrlImagen: '',
+            asuntoImagen: imagenFile
         }])
 
         toast.success("Asunto agregado exitosamente")
@@ -289,7 +290,7 @@ const RegistrarResolucion = () => {
     }
     const editarAsuntoLista = (id: number, nuevoAsunto: Asunto) => {
         const nuevaLista = listaAsuntoSeleccion.map((elemento) => {
-            if (elemento.idAsunto === id) {
+            if (elemento.asuntoId === id) {
                 return nuevoAsunto;
             }
             return elemento;
@@ -297,7 +298,7 @@ const RegistrarResolucion = () => {
         setListaAsuntoSeleccion(nuevaLista);
     }
     const eliminarAsuntoLista = (id: number) => {
-        const nuevaLista = listaAsuntoSeleccion.filter((elemento) => elemento.idAsunto !== id)
+        const nuevaLista = listaAsuntoSeleccion.filter((elemento) => elemento.asuntoId !== id)
         setListaAsuntoSeleccion(nuevaLista)
         toast("El asunto ha sido removido", { icon: 'ℹ️' })
     }
@@ -629,8 +630,8 @@ const RegistrarResolucion = () => {
                                                                             </td>
                                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
                                                                                 <FechaTooltip
-                                                                                    codigo={item.idDoc}
-                                                                                    fecha={item.fechaDoc}
+                                                                                    codigo={item.documentoId}
+                                                                                    fecha={item.documentoFecha}
                                                                                 />
                                                                             </td>
                                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
@@ -641,7 +642,7 @@ const RegistrarResolucion = () => {
                                                                             </td>
                                                                             <td className="text-xs p-2 text-justify align-middle border-b border-solid">
                                                                                 <TextoLargoTooltip
-                                                                                    codigo={item.idDoc}
+                                                                                    codigo={item.documentoId}
                                                                                     texto={item.considerandoDoc}
                                                                                 />
                                                                             </td>
@@ -696,9 +697,9 @@ const RegistrarResolucion = () => {
                                         listaDocumentoSeleccion.map((item, index) => {
                                             return (
                                                 <DocumentoSeleccionado
-                                                    id={item.idDoc}
+                                                    id={item.documentoId}
                                                     key={index}
-                                                    tipoDoc={item.tipoDoc}
+                                                    tipoDoc={item.tipoDocumentoId}
                                                     documento={item.documento}
                                                     considerando={item.considerandoDoc}
                                                     onclick={eliminarDocumentoLista}
@@ -880,12 +881,12 @@ const RegistrarResolucion = () => {
                                                 listaAsuntoSeleccion.map((item, index) => {
                                                     return (
                                                         <AsuntoSeleccionado
-                                                            id={item.idAsunto}
+                                                            id={item.asuntoId}
                                                             key={index}
-                                                            idTipoAcuerdo={item.idTipoAsunto}
+                                                            idTipoAcuerdo={item.tipoAsuntoId}
                                                             nombreTipo={item.tipoAsunto}
-                                                            asunto={item.asunto}
-                                                            imagen={item.imagen}
+                                                            asunto={item.asuntoDescripcion}
+                                                            imagen={item.asuntoImagen}
 
                                                             editar={editarAsuntoLista}
                                                             eliminar={eliminarAsuntoLista}

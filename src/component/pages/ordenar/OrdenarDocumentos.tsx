@@ -51,7 +51,7 @@ export const OrdenarDocumentos: React.FC<ListaDocumentoSeleccionProps> = ({ list
                                         className='p-0.5 w-[700px] max-h-[750px] overflow-y-auto'
                                         ref={provided.innerRef} {...provided.droppableProps}>
                                         {listaDocumentoSeleccion.map((item, index) => (
-                                            <Draggable key={item.idDoc} draggableId={item.idDoc.toString()} index={index}>
+                                            <Draggable key={item.documentoId} draggableId={item.documentoId.toString()} index={index}>
                                                 {(provided, snapshot) => (
                                                     <div className={`flex p-1 px-2 
                                                     ${snapshot.isDragging && 'border-upla-100 rounded border-2 text-upla-100 '} 
@@ -65,12 +65,12 @@ export const OrdenarDocumentos: React.FC<ListaDocumentoSeleccionProps> = ({ list
                                                         <div className='w-11/12 font-normal flex flex-col gap-1'>
                                                             <div className='font-bold flex gap-2 text-sm'>
                                                                 <span className={`rounded px-2 py-0.5 text-white font-semibold text-xs
-                                                                ${item.tipoDoc == 1 && 'bg-cyan-500'}
-                                                                ${item.tipoDoc == 2 && 'bg-green-400'}
+                                                                ${item.tipoDocumentoId == 1 && 'bg-cyan-500'}
+                                                                ${item.tipoDocumentoId == 2 && 'bg-green-400'}
                                                                 `}
                                                                 >
-                                                                    {item.tipoDoc == 1 && 'Oficio'}
-                                                                    {item.tipoDoc == 2 && 'Proveído'}
+                                                                    {item.tipoDocumentoId == 1 && 'Oficio'}
+                                                                    {item.tipoDocumentoId == 2 && 'Proveído'}
                                                                 </span>
                                                                 {item.documento}
                                                             </div>

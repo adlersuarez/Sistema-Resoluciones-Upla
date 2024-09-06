@@ -1,8 +1,9 @@
 export default interface Documento {
-    idDoc: number
+    documentoId: number
     documento: string
-    tipoDoc: number
-    urlDoc: string
-    fechaDoc: Date
+
+    tipoDocumentoId: number
+    documentoUrl: string
+    documentoFecha: Date
     considerandoDoc: string
 }
