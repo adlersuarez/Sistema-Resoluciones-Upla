@@ -27,7 +27,7 @@ const HomeEstudiante = () => {
                     </h2>
                 </div>
                 <div className='font-bold text-4xl text-upla-100 '>
-                    RECTORADO
+                    SECRETARÍA GENERAL
                 </div>
                 <hr className='my-4' />
 

@@ -6,6 +6,8 @@ import { LoaderSvg } from '@/component/Svg.component';
 import { useNavigate } from 'react-router-dom';
 import { varPruebaResolucion } from '@/helper/prueba.helper';
 import { Resolucion } from '@/model/interfaces/resolucion/resolucion';
+import { EncargosIcon } from '@/component/pages/listado/EncargosIcon';
+import { formatDateResolucion } from '@/helper/herramienta.helper';
 
 const Resoluciones = () => {
 
@@ -98,13 +100,13 @@ const Resoluciones = () => {
                     <table className="text-gray-700 uppercase bg-upla-100 border table-auto w-full" id="miTabla">
                         <thead className="align-bottom">
                             <tr className="font-bold text-center uppercase text-xs text-white">
-                                <th className="px-6 py-2 align-middle w-5%">#</th>
                                 <th className="px-6 py-2 align-middle">Resolución</th>
+                                <th className="px-6 py-2 align-middle">Tipo</th>
+                                <th className="px-6 py-2 align-middle">Fecha</th>
                                 <th className="px-6 py-2 align-middle">Vista Previa</th>
                                 <th className="px-6 py-2 align-middle">Usuarios</th>
-                                <th className="px-6 py-2 align-middle">Archivo</th>
-                                <th className="px-6 py-2 align-middle">Fecha</th>
-                                <th className="px-6 py-2 align-middle">Acción</th>
+                                <th className="px-6 py-2 align-middle">Documento</th>
+                                <th className="px-6 py-2 align-middle">Cargar</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -138,25 +140,37 @@ const Resoluciones = () => {
 
                                                     return (
                                                         <tr key={index} className={`${index % 2 == 0 ? 'bg-white' : 'bg-blue-100'} border-b`}>
-                                                            <td className="text-xs p-2 text-center align-middle border-b border-solid">{++index}</td>
-
-                                                            <td className="text-xs p-2 text-center align-middle border-b border-solid">
+                                                            <td className="text-xs p-2 px-4 text-left align-middle border-b border-solid">
                                                                 {item.resolucionNombre}
                                                             </td>
-                                                            <td className="text-xs p-2 text-center align-middle border-b border-solid">
-
+                                                            <td className="text-xs p-2 px-4 text-center align-middle border-b border-solid font-semibold">
+                                                                {item.tipoResolucion}
+                                                            </td>
+                                                            <td className="text-xs p-2 text-center align-middle border-b border-solid normal-case font-semibold">
+                                                                {formatDateResolucion(item.resolucionFecha)}
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-                                                                <span>{item.encargos.length} encargos</span>
+                                                                <button className='bg-green-400 hover:bg-green-600 hover:scale-105 px-2 py-1 text-base rounded-md text-white'
+                                                                    onClick={() => { }}>
+                                                                    <i className="bi bi-eye" />
+                                                                </button>
                                                             </td>
                                                             <td className="text-xs p-2 text-center align-middle border-b border-solid">
-                                                                {item.resolucionUrl}
+                                                                <EncargosIcon
+                                                                    idLista={item.resolucionId}
+                                                                />
                                                             </td>
-                                                            <td className="text-xs p-2 text-center align-middle border-b border-solid">
-                                                                {item.resolucionFecha}
+                                                            <td className="text-xs p-2 px-0 text-center align-middle border-b border-solid">
+                                                                <button className='bg-blue-500 hover:bg-blue-800 hover:scale-105 px-2 py-1 text-base rounded-md text-white'
+                                                                    onClick={() => { }}>
+                                                                    <i className="bi bi-file-earmark-word mr-1" /> <span className='text-xs'>Descargar</span>
+                                                                </button>
                                                             </td>
-                                                            <td className="text-xs p-2 text-center align-middle border-b border-solid">
-                                                                <button>Cargar</button>
+                                                            <td className="text-xs p-2 px-0 text-center align-middle border-b border-solid">
+                                                                <button className='bg-red-500 hover:bg-red-800 hover:scale-105 px-2 py-1 text-base rounded-md text-white'
+                                                                    onClick={() => { }}>
+                                                                    <i className="bi bi-file-earmark-arrow-up-fill mr-1" /> <span className='text-xs'>Documento firmado</span>
+                                                                </button>
                                                             </td>
                                                         </tr>
                                                     );

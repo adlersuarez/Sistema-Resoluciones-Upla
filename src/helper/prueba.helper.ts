@@ -293,7 +293,7 @@ export const varPruebaResolucion: Resolucion[] = [
         resolucionId: 1,
         resolucionNumero: 1001,
         resolucionNombre: "Aprobación de Proyecto",
-        resolucionUrl:"http://example.com/doc1.pdf",
+        resolucionUrl: "http://example.com/doc1.pdf",
         resolucionFecha: '2024-10-02',
         tipoResolucionId: 1,
         tipoResolucion: "Ordinaria",
@@ -331,6 +331,22 @@ export const varPruebaResolucion: Resolucion[] = [
                 detalle: "Encargado de la dirección del proyecto.",
                 titulo: "Director del proyecto",
                 tipoGrupo: 1
+            },
+            {
+                idSeleccionado: 4,
+                tipo: "Director de RRHH",
+                codigo: "RRHH004",
+                detalle: "Encargado de los contratos.",
+                titulo: "Director de Recursos Humanos",
+                tipoGrupo: 4
+            },
+            {
+                idSeleccionado: 2,
+                tipo: "Secretario",
+                codigo: "SEC002",
+                detalle: "Responsable de las modificaciones.",
+                titulo: "Secretario General",
+                tipoGrupo: 2
             }
         ]
     },
@@ -338,7 +354,7 @@ export const varPruebaResolucion: Resolucion[] = [
         resolucionId: 2,
         resolucionNumero: 1002,
         resolucionNombre: "Modificación de Reglamento",
-        resolucionUrl:"http://example.com/doc1.pdf",
+        resolucionUrl: "http://example.com/doc1.pdf",
         resolucionFecha: '2024-10-02',
         tipoResolucionId: 2,
         tipoResolucion: "Extraordinaria",
@@ -383,7 +399,7 @@ export const varPruebaResolucion: Resolucion[] = [
         resolucionId: 3,
         resolucionNumero: 1003,
         resolucionNombre: "Asignación de Recursos",
-        resolucionUrl:"http://example.com/doc1.pdf",
+        resolucionUrl: "http://example.com/doc1.pdf",
         resolucionFecha: '2024-10-02',
         tipoResolucionId: 3,
         tipoResolucion: "Urgente",
@@ -428,7 +444,7 @@ export const varPruebaResolucion: Resolucion[] = [
         resolucionId: 4,
         resolucionNumero: 1004,
         resolucionNombre: "Renovación de Contrato",
-        resolucionUrl:"http://example.com/doc1.pdf",
+        resolucionUrl: "http://example.com/doc1.pdf",
         resolucionFecha: '2024-10-02',
         tipoResolucionId: 4,
         tipoResolucion: "Ordinaria",
@@ -458,22 +474,13 @@ export const varPruebaResolucion: Resolucion[] = [
                 asuntoImagen: null
             }
         ],
-        encargos: [
-            {
-                idSeleccionado: 4,
-                tipo: "Director de RRHH",
-                codigo: "RRHH004",
-                detalle: "Encargado de los contratos.",
-                titulo: "Director de Recursos Humanos",
-                tipoGrupo: 4
-            }
-        ]
+        encargos: []
     },
     {
         resolucionId: 5,
         resolucionNumero: 1005,
         resolucionNombre: "Suspensión de Actividades",
-        resolucionUrl:"http://example.com/doc1.pdf",
+        resolucionUrl: "http://example.com/doc1.pdf",
         resolucionFecha: '2024-10-02',
         tipoResolucionId: 5,
         tipoResolucion: "Extraordinaria",

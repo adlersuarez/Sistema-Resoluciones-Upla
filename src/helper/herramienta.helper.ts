@@ -447,5 +447,20 @@ export const seccionSelect = [
     { "id": 26, "nombreSeccion": "Z" }
 ];
 
+export const formatDateResolucion = (dateString: string): string => {
+    const date = new Date(dateString);
+
+    const options: Intl.DateTimeFormatOptions = {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric'
+    };
+
+    // Formatear la fecha como '02 de octubre de 2024'
+    const formattedDate = date.toLocaleDateString('es-ES', options);
+
+    // Reemplazar solo el primer 'de' con una coma, y el último 'de' con 'del'
+    return formattedDate.replace(' de ', ', ').replace(' de ', ' del ');
+}
 
 
