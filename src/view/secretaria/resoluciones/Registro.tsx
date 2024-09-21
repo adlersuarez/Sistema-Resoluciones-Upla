@@ -1135,7 +1135,7 @@ const RegistrarResolucion = () => {
                             Registrar
                         </button>
                         <button
-                            className='bg-red-400 hover:bg-red-600 text-white p-2 px-4 rounded'
+                            className='hidden bg-red-400 hover:bg-red-600 text-white p-2 px-4 rounded'
                             onClick={() => generarDocumento(listaDocumentoSeleccion, listaAsuntoSeleccion)}
                         >
                             Descargar word

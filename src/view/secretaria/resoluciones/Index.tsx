@@ -104,7 +104,7 @@ const Resoluciones = () => {
                                 <th className="px-6 py-2 align-middle">Tipo</th>
                                 <th className="px-6 py-2 align-middle">Fecha</th>
                                 <th className="px-6 py-2 align-middle">Vista Previa</th>
-                                <th className="px-6 py-2 align-middle">Usuarios</th>
+                                <th className="px-6 py-2 align-middle">Encargado a</th>
                                 <th className="px-6 py-2 align-middle">Documento</th>
                                 <th className="px-6 py-2 align-middle">Cargar</th>
                             </tr>
